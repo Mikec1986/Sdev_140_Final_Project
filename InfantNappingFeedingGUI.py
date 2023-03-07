@@ -1,8 +1,8 @@
-#Michael Coughlin
-#GUI Baby Tracker
-#version 1.0
-#This program will record an infant's naps and feedings.
-#Descriptions of each sub below
+# Michael Coughlin
+# GUI Baby Tracker
+# version 1.0
+# This program will record an infant's naps and feedings.
+# Descriptions of each sub below
 
 import tkinter as tk
 from tkinter import *
@@ -12,25 +12,25 @@ from tkinter import messagebox
 
 babyapp = tk.Tk()
 
-#This is the welcome message only displayed on the welcome page.
+# This is the welcome message only displayed on the welcome page.
 welcome = """
 Welcome to the Baby Tracking App.
 Please select the activity that you would like to track
 """
-#This is the Napping message only displayed on the welcome page.
+# This is the Napping message only displayed on the welcome page.
 nappingmessage = """
 Select Count up to start an increasing timer.
 Specify a time to count down.
 Stop will pause the timer and finish will calculate the results!
 """
-#This is the Feeding message only displayed on the Feeding page.
+# This is the Feeding message only displayed on the Feeding page.
 feedingmessage = """
 Press Count Up to start the timer. Stop will pause the count.
 Finish will output your stats!
 Input the ounces to calculate the infant's rate.
 """
 
-#Declarations
+# Declarations
 style1 = font.Font(size=15)
 style2 = font.Font(size=20)
 style3 = font.Font(size=14)
@@ -41,12 +41,12 @@ ounces1 = tk.StringVar()
 second1.set("00")
 minute1.set("00")
 hour1.set("00")
-ounces1.set("00")
+ounces1.set("0.0")
 doTick = True
 down = False
 
 
-#Logic for the timer to count up.
+# Logic for the timer to count up.
 def TimerUp():
     timer1 = 0
     timer1 = 0
@@ -73,7 +73,7 @@ def TimerUp():
     return
 
 
-#Logic for the Countdown Timer
+# Logic for the Countdown Timer
 def TimerDown():
     global hourm
     global hour2
@@ -117,68 +117,131 @@ def TimerDown():
                     if minutem == 0:
                         if secondm == 0:
                             timerupm = "Wow. The nap lasted " + str(hourm) + "hour(s) long"
-                            timerup = messagebox.showinfo("Time", timerupm)
+                            messagebox.showinfo("Time", timerupm)
                             second1.set("00")
                             minute1.set("00")
                             hour1.set("00")
+                            napping_page.countup_b['state'] = "normal"
+                            napping_page.nstopb['state'] = "disabled"
+                            napping_page.home_b['state'] = "normal"
+                            napping_page.feeding_b2['state'] = "normal"
+                            feeding_page.home_b2['state'] = "normal"
+                            feeding_page.napping_b2['state'] = "normal"
                             return
                         elif secondm > 0:
                             timerupm = "Wow. The nap lasted " + str(hourm) + "hour(s) and" + str(
                                 secondm) + " second(s) long"
-                            timerup = messagebox.showinfo("Time", timerupm)
+                            messagebox.showinfo("Time", timerupm)
                             second1.set("00")
                             minute1.set("00")
                             hour1.set("00")
+                            napping_page.countup_b['state'] = "normal"
+                            napping_page.nstopb['state'] = "disabled"
+                            napping_page.home_b['state'] = "normal"
+                            napping_page.feeding_b2['state'] = "normal"
+                            feeding_page.home_b2['state'] = "normal"
+                            feeding_page.napping_b2['state'] = "normal"
                             return
                     elif minutem > 0:
                         if secondm == 0:
                             timerupm = "Wow. The nap lasted " + str(hourm) + "hour(s) and" + str(
                                 minutem) + "minute(s) long"
-                            timerup = messagebox.showinfo("Time", timerupm)
+                            messagebox.showinfo("Time", timerupm)
                             second1.set("00")
                             minute1.set("00")
                             hour1.set("00")
+                            napping_page.countup_b['state'] = "normal"
+                            napping_page.nstopb['state'] = "disabled"
+                            napping_page.home_b['state'] = "normal"
+                            napping_page.feeding_b2['state'] = "normal"
+                            feeding_page.home_b2['state'] = "normal"
+                            feeding_page.napping_b2['state'] = "normal"
                             return
                         elif secondm > 0:
                             timerupm = "Wow. The nap lasted " + str(hourm) + "hour(s)," + str(
                                 minutem) + "minute(s) and" + str(secondm) + "second(s) long"
-                            timerup = messagebox.showinfo("Time", timerupm)
+                            messagebox.showinfo("Time", timerupm)
                             second1.set("00")
                             minute1.set("00")
                             hour1.set("00")
+                            napping_page.countup_b['state'] = "normal"
+                            napping_page.nstopb['state'] = "disabled"
+                            napping_page.home_b['state'] = "normal"
+                            napping_page.feeding_b2['state'] = "normal"
+                            feeding_page.home_b2['state'] = "normal"
+                            feeding_page.napping_b2['state'] = "normal"
                             return
                 elif hourm == 0:
                     if minutem > 0:
                         if secondm == 0:
                             timerupm = "Wow. The nap lasted " + str(minutem) + "minute(s) long"
-                            timerup = messagebox.showinfo("Time", timerupm)
+                            messagebox.showinfo("Time", timerupm)
                             second1.set("00")
                             minute1.set("00")
                             hour1.set("00")
+                            napping_page.countup_b['state'] = "normal"
+                            napping_page.nstopb['state'] = "disabled"
+                            napping_page.home_b['state'] = "normal"
+                            napping_page.feeding_b2['state'] = "normal"
+                            feeding_page.home_b2['state'] = "normal"
+                            feeding_page.napping_b2['state'] = "normal"
                             return
                         elif secondm > 0:
                             timerupm = "Wow. The nap lasted " + str(minutem) + "minute(s) and" + str(
                                 secondm) + " second(s) long"
-                            timerup = messagebox.showinfo("Time", timerupm)
+                            messagebox.showinfo("Time", timerupm)
                             second1.set("00")
                             minute1.set("00")
                             hour1.set("00")
+                            napping_page.countup_b['state'] = "normal"
+                            napping_page.nstopb['state'] = "disabled"
+                            napping_page.home_b['state'] = "normal"
+                            napping_page.feeding_b2['state'] = "normal"
+                            feeding_page.home_b2['state'] = "normal"
+                            feeding_page.napping_b2['state'] = "normal"
                             return
                     elif minutem == 0:
                         timerupm = "Wow. The nap lasted " + str(secondm) + " second(s) long"
-                        timerup = messagebox.showinfo("Time", timerupm)
+                        messagebox.showinfo("Time", timerupm)
                         second1.set("00")
                         minute1.set("00")
                         hour1.set("00")
+                        napping_page.countup_b['state'] = "normal"
+                        napping_page.nstopb['state'] = "disabled"
+                        napping_page.home_b['state'] = "normal"
+                        napping_page.feeding_b2['state'] = "normal"
+                        feeding_page.home_b2['state'] = "normal"
+                        feeding_page.napping_b2['state'] = "normal"
                         return
     second1.set("00")
     minute1.set("00")
     hour1.set("00")
     napping_page.countup_b['state'] = "normal"
+    napping_page.nstopb['state'] = "disabled"
+    napping_page.home_b['state'] = "normal"
+    napping_page.feeding_b2['state'] = "normal"
+    feeding_page.home_b2['state'] = "normal"
+    feeding_page.napping_b2['state'] = "normal"
     return
 
 
-#Logic to stop the count down timer on the Napping page
+# input verification for timer fields
+def isinteger(field):
+    try:
+        int(field)
+    except ValueError:
+        return True
+
+
+# Input verification for ounces field
+def isfloat(field):
+    try:
+        float(field)
+    except ValueError:
+        return True
+
+
+# Logic to stop the count down timer on the Napping page
 def nStopd():
     global doTick
     doTick = False
@@ -191,7 +254,7 @@ def nStopd():
     return
 
 
-#Logic to stop the count up timer on the Napping page
+# Logic to stop the count up timer on the Napping page
 def nStopu():
     global doTick
     doTick = False
@@ -205,7 +268,7 @@ def nStopu():
     return
 
 
-#Logic to stop the count up timer on the Feeding page
+# Logic to stop the count up timer on the Feeding page
 def fStopup():
     global doTick
     doTick = False
@@ -219,57 +282,72 @@ def fStopup():
     return
 
 
-#Logic for the finish button on the Feeding page
+# Logic for the finish button on the Feeding page
 def finish():
-    ounces = ounces1.get()
-    if int(ounces) > 0:
-        fedcalc = '{0:.2f}'.format(int((ounces1.get()))/ (int(minute1.get()) + (int(second1.get())/60)))
-        bottlemessage = "Your infant drank " + str(ounces1.get()) + " ounces at a rate of " + str(fedcalc) + " ounces per minute!"
-        bottlebox = messagebox.showinfo("Fed Timer", bottlemessage)
-    else:
-        if int(minute1.get()) == 0:
-            bottlemessage = "Your infant was fed for " + str(second1.get()) + " seconds!"
-            bottlebox = messagebox.showinfo("Fed Timer", bottlemessage)
+    if not isfloat(ounces1.get()):
+        ounces = ounces1.get()
+        if float(ounces) > 0:
+            fedcalc = '{0:.2f}'.format(float((ounces1.get())) / (int(minute1.get()) + (int(second1.get()) / 60)))
+            bottlemessage = "Your infant drank " + str(ounces1.get()) + " ounces at a rate of " + str(
+                fedcalc) + " ounces per minute!"
+            messagebox.showinfo("Fed Timer", bottlemessage)
         else:
-            bottlemessage = "Your infant was fed for " + str(minute1.get()) + "minute(s) and " + str(second1.get()) + " seconds!"
-            bottlebox = messagebox.showinfo("Fed Timer", bottlemessage)
-    second1.set("00")
-    minute1.set("00")
-    hour1.set("00")
-    ounces1.set("00")
-    feeding_page.stopb['state'] = "disabled"
-    feeding_page.finishb['state'] = "disabled"
-    return
+            if int(minute1.get()) == 0:
+                bottlemessage = "Your infant was fed for " + str(second1.get()) + " seconds!"
+                messagebox.showinfo("Fed Timer", bottlemessage)
+            else:
+                bottlemessage = "Your infant was fed for " + str(minute1.get()) + "minute(s) and " + str(
+                    second1.get()) + " seconds!"
+                messagebox.showinfo("Fed Timer", bottlemessage)
+        second1.set("00")
+        minute1.set("00")
+        hour1.set("00")
+        ounces1.set("00")
+        feeding_page.stopb['state'] = "disabled"
+        feeding_page.finishb['state'] = "disabled"
+        return
+    else:
+        messagebox.showinfo("Error", "The character entered is not a floating point number. \n"
+                                     "Please enter a floating point number like 2.5")
+        second1.set("00")
+        minute1.set("00")
+        hour1.set("00")
+        ounces1.set("00")
+        return
 
 
-#Logic for the finish button on the Napping Page
+# Logic for the finish button on the Napping Page
 def nfinish():
-    if down == True:
+    if down:
         if hourm - hour2 == 0:
             if minutem - minute2 == 0:
                 if secondm - second2 == 0:
                     return
                 else:
                     nfinishd_mess = "Wow! The nap lasted for " + str((secondm - second2)) + " seconds!"
-                    nfinishd_box = messagebox.showinfo("Nap Timer", nfinishd_mess)
+                    messagebox.showinfo("Nap Timer", nfinishd_mess)
             else:
-                nfinishd_mess = "Wow! The nap lasted for " + str((minutem - minute2)) + " minutes and " + str((secondm - second2)) + " seconds!"
-                nfinishd_box = messagebox.showinfo("Nap Timer", nfinishd_mess)
+                nfinishd_mess = "Wow! The nap lasted for " + str((minutem - minute2)) + " minutes and " + str(
+                    (secondm - second2)) + " seconds!"
+                messagebox.showinfo("Nap Timer", nfinishd_mess)
         else:
-            nfinishd_mess = "Wow! The nap lasted for " + str((hourm - hour2)) + " hour(s), " + str((minutem - minute2)) + " minutes, and " + str(
+            nfinishd_mess = "Wow! The nap lasted for " + str((hourm - hour2)) + " hour(s), " + str(
+                (minutem - minute2)) + " minutes, and " + str(
                 (secondm - second2)) + " seconds!"
-            nfinishd_box = messagebox.showinfo("Nap Timer", nfinishd_mess)
+            messagebox.showinfo("Nap Timer", nfinishd_mess)
     else:
         if int(hour1.get()) == 0:
             if int(minute1.get()) == 0:
                 napUpm = "Wow! The nap lasted for " + str(second1.get()) + " seconds!"
-                nupUpbox = messagebox.showinfo("Nap Timer", napUpm)
+                messagebox.showinfo("Nap Timer", napUpm)
             else:
-                napUpm = "Wow! The nap lasted for " + str(minute1.get()) + " minute(s) and " + str(second1.get()) + " seconds!"
-                nupUpbox = messagebox.showinfo("Nap Timer", napUpm)
+                napUpm = "Wow! The nap lasted for " + str(minute1.get()) + " minute(s) and " + str(
+                    second1.get()) + " seconds!"
+                messagebox.showinfo("Nap Timer", napUpm)
         else:
-            napUpm = "Wow! The nap lasted for " + str(hour1.get()) + " hour(s), " + str(minute1.get()) + " minute(s) and " +str(second1.get()) + " seconds!"
-            nupUpbox = messagebox.showinfo("Nap Timer", napUpm)
+            napUpm = "Wow! The nap lasted for " + str(hour1.get()) + " hour(s), " + str(
+                minute1.get()) + " minute(s) and " + str(second1.get()) + " seconds!"
+            messagebox.showinfo("Nap Timer", napUpm)
     second1.set("00")
     minute1.set("00")
     hour1.set("00")
@@ -279,21 +357,31 @@ def nfinish():
     return
 
 
-#Logic to start the count down timer
+# Logic to start the count down timer
 def Startd():
     global doTick
     global down
-    doTick = True
-    down = True
-    napping_page.nstopb['state'] = "normal"
-    napping_page.home_b['state'] = "disabled"
-    napping_page.feeding_b2['state'] = "disabled"
-    feeding_page.home_b2['state'] = "disabled"
-    feeding_page.napping_b2['state'] = "disabled"
-    TimerDown()
+    if not isinteger(second1.get()):
+        if not isinteger(minute1.get()):
+            if not isinteger(hour1.get()):
+                doTick = True
+                down = True
+                napping_page.nstopb['state'] = "normal"
+                napping_page.home_b['state'] = "disabled"
+                napping_page.feeding_b2['state'] = "disabled"
+                feeding_page.home_b2['state'] = "disabled"
+                feeding_page.napping_b2['state'] = "disabled"
+                TimerDown()
+            else:
+                messagebox.showinfo("Error",
+                                             "The character entered is not an integer. Please enter an integer")
+        else:
+            messagebox.showinfo("Error", "The character entered is not an integer. Please enter an integer")
+    else:
+        messagebox.showinfo("Error", "The character entered is not an integer. Please enter an integer")
 
 
-#Logic to start the Count up Timer
+# Logic to start the Count up Timer
 def Startu():
     global doTick
     doTick = True
@@ -305,13 +393,13 @@ def Startu():
     TimerUp()
 
 
-#Logic to switch to Home page
+# Logic to switch to Home page
 def homecall():
     home.tkraise()
     return
 
 
-#Logic to switch to Napping page
+# Logic to switch to Napping page
 def napping():
     second1.set("00")
     minute1.set("00")
@@ -323,34 +411,36 @@ def napping():
     return
 
 
-#Logic to switch to Feeding Page
+# Logic to switch to Feeding Page
 def feeding():
     second1.set("00")
     minute1.set("00")
     hour1.set("00")
-    ounces1.set("00")
+    ounces1.set("0.0")
     feeding_page.stopb['state'] = "disabled"
     feeding_page.finishb['state'] = "disabled"
+    napping_page.countd_b['state'] = "normal"
     Feeding.tkraise()
     return
 
 
-#Quit button logic
+# Quit button logic
 def Quit():
     babyapp.destroy()
     return
 
-#Frame Creation
-home = Frame(babyapp,borderwidth=0,highlightthickness=0)
-Napping = Frame(babyapp,borderwidth=0,highlightthickness=0)
-Feeding = Frame(babyapp,borderwidth=0,highlightthickness=0)
-#Frame Placement
+
+# Frame Creation
+home = Frame(babyapp, borderwidth=0, highlightthickness=0)
+Napping = Frame(babyapp, borderwidth=0, highlightthickness=0)
+Feeding = Frame(babyapp, borderwidth=0, highlightthickness=0)
+# Frame Placement
 home.grid(row=0, column=0, sticky="nsew")
 Napping.grid(row=0, column=0, sticky="nsew")
 Feeding.grid(row=0, column=0, sticky="nsew")
 
 
-#Home Page labels, picture, and buttons grouping
+# Home Page labels, picture, and buttons grouping
 class home_page:
 
     home_label = Label(home, text=welcome, font=style2)
@@ -370,9 +460,8 @@ class home_page:
     quit_b.pack(side="bottom")
 
 
-#Napping page picture, buttons, labels, and entries grouping
+# Napping page picture, buttons, labels, and entries grouping
 class napping_page:
-
     napping_label = Label(Napping, text=nappingmessage, font=style1)
     napping_label.pack(pady=5)
 
@@ -420,9 +509,8 @@ class napping_page:
     quit_b.pack(side="bottom")
 
 
-#Feeding page picture, buttons, labels, and entries grouping
+# Feeding page picture, buttons, labels, and entries grouping
 class feeding_page:
-
     feeding_label = Label(Feeding, text=feedingmessage, font=style3)
     feeding_label.pack(pady=10)
 
@@ -430,7 +518,7 @@ class feeding_page:
     feeding_pic = Label(Feeding, image=babybottle)
     feeding_pic.pack()
 
-    oz_entry = Entry(Feeding, textvariable=ounces1, width=2)
+    oz_entry = Entry(Feeding, textvariable=ounces1, width=4)
     oz_entry.place(x=150, y=460)
 
     oz_label = Label(Feeding, text="ounces")
@@ -467,10 +555,9 @@ class feeding_page:
     quit_b.pack(side="bottom")
 
 
-#start and build tkinter window
+# start and build tkinter window
 home.tkraise()
 babyapp.geometry("650x600")
 babyapp.title("The Baby Tracking App")
 babyapp.resizable(False, False)
 babyapp.mainloop()
-
